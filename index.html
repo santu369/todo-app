@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Todo App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="todo-center">
+      <header>
+        <h1>TODO</h1>
+        <div class="toggle">
+          <label for="toggle-theme" class="sr-only">Toggle Theme</label>
+          <button id="toggle-theme" class="toggle-btn" onclick="toggleTheme()">
+            <img
+              id="toggle-btn-icon"
+              src="./images/icon-moon.svg"
+              alt="toggle theme icon"
+              width="26"
+              height="26"
+            />
+          </button>
+        </div>
+      </header>
+      <div class="todos-container">
+        <div class="todo-create">
+          <div class="btn-check-input-container">
+            <button
+              class="btn-img btn-check btn-check-input"
+              onclick="markInputTodo(this)"
+              id="create-btn"
+            >
+              <img
+                class="check-icon hidden"
+                src="./images/icon-check.svg"
+                alt="check icon"
+              />
+            </button>
+          </div>
+          <input
+            class="todo-input"
+            id="new-todo"
+            type="text"
+            placeholder="Create a new todo..."
+            onkeyup="createTodo(event)"
+          />
+        </div>
+        <div class="todo-main">
+          <div class="todo-list"></div>
+          <div class="todo-footer">
+            <p class="todo-items-left">
+              <strong id="todos-count"></strong> items left
+            </p>
+            <button class="btn todo-clear" onclick="deleteCompletedTodos(this)">
+              Clear Completed
+            </button>
+          </div>
+        </div>
+        <div class="todo-options">
+          <button
+            class="btn btn-active"
+            id="all-todos"
+            onclick="showAllTodos(this)"
+          >
+            All
+          </button>
+          <button class="btn" onclick="showActiveTodos(this)">Active</button>
+          <button class="btn" onclick="showCompletedTodos(this)">
+            Completed
+          </button>
+        </div>
+      </div>
+      <div class="todo-drag-drop">
+        <p>Drag and drop to reorder list</p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/draggable.bundle.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
